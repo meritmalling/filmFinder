@@ -1,0 +1,39 @@
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  background-image: url(http://www.cliparthut.com/clip-arts/545/film-reel-545278.jpg);
+  background-repeat:  no-repeat;
+  background-size:  1700px;
+}
+#searchform{
+  margin-top:  120px;
+}
+#searchfield {
+  margin-top: 15px;
+}
+#star {
+  height: 20px;
+}
+#fresh{
+  margin-top: 10px;
+}
+.rating{
+  display: inline-block;
+}
+#searchagain{
+  margin-top:  5px;
+}
+#hiderating{
+  color: transparent;
+}
+#rating-div{
+  margin-top:  -20px;
+  margin-bottom:  20px;
+}
+#poster{
+  height: 400px;
+}
+.well{
+  background-color:  white;
+}
+/*<img id='star' src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png'>*/
