@@ -19,7 +19,16 @@
       <p> Awards: <%= myFilm.awards %></p>
         <p id='fresh'> Fresh: </b><%= myFilm.tomatoes %></p>
       <p> Rating: <%= myFilm.rated %></p>
-    </div>
+          <form action="/favorites" method="POST" role="form">
+      <div class="form-group">
+        <input name='id' type="hidden" value="<%= myFilm.id %>" class="form-control">
+         <input name='title' type="hidden" value="<%= myFilm.title %>" class="form-control">
+          <input name='year' type="hidden" value="<%= myFilm.year %>" class="form-control">
+           <input name='poster' type="hidden" value="<%= myFilm.poster %>" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-default">add to favorites</button>
+    </form>
+        </div>
 </div>
 <div id='hiderating'>
     <p class='rating'> IMDB Rating: </p>
