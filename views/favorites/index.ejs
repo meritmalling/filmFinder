@@ -1,11 +1,11 @@
 <h2> Favorites </h2>
 
 <div class="col-md-6 col-md-offset-3">
-  <% myFavorites.forEach(function(favorites){ %>
-  <div class="well">
-  <a href="/show/<%= favorites.imdbId %>"><b><%= favorites.title %></a><br>
-    <b>Year: </b><%= favorites.year %><br>
-    <a href="/favorites/show/<%= favorites.imdbId %>">Comments <i class="glyphicon glyphicon-pencil"></i></a>
-  </div>
-  <% }); %>
+          <% myFavorites.forEach(function(favorites){ %>
+                    <div class="well">
+                              <a href="/show/<%= favorites.imdbId %>"><b><%= favorites.title %></a><br>
+                              <b>Year: </b><%= favorites.year %><br>
+                              <a href="/favorites/show/<%= favorites.imdbId %>">Comments <i class="glyphicon glyphicon-pencil"></i></a>
+                    </div>
+          <% }); %>
 </div>

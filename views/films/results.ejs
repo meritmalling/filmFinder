@@ -1,11 +1,10 @@
-<a id='searchagain'; class='pull-right' href="/"><b>search again</a><br>
 <h2> your search results </h2>
 
 <div class="col-md-6 col-md-offset-3">
-  <% myFilms.forEach(function(searchResults){ %>
-  <div class="well">
-  <a href="show/<%= searchResults.imdbID %>"><b><%= searchResults.Title %></a><br>
-    <b>Year: </b><%= searchResults.Year %><br>
-  </div>
-  <% }); %>
+          <% myFilms.forEach(function(searchResults){ %>
+                    <div class="well">
+                              <a href="show/<%= searchResults.imdbID %>"><b><%= searchResults.Title %></a><br>
+                              <b>Year: </b><%= searchResults.Year %><br>
+                    </div>
+          <% }); %>
 </div>

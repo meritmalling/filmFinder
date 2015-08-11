@@ -2,19 +2,19 @@
 <h5> some other film buffs said... </h5>
 
 <div class="col-md-6 col-md-offset-3">
-  <% myComments.forEach(function(comments){ %>
-  <div class="well">
-  <%= comments.comment %>
-  </div>
-  <% }); %>
+      <% myComments.forEach(function(comments){ %>
+            <div class="well">
+                  <%= comments.comment %>
+            </div>
+      <% }); %>
 </div>
 
 <div class="col-sm-6 col-sm-offset-3">
-<form action="/comments" method="POST" role="form">
-      <div class="form-group">
-          <input name='id' type="hidden" value="<%= myFavorite.id %>"class="form-control">
-           <input name='comment' type="text" class="form-control">
-      </div>
-      <button type="submit" class="btn btn-default">add your comment</button>
-    </form>
+      <form action="/comments" method="POST" role="form">
+            <div class="form-group">
+                  <input name='id' type="hidden" value="<%= myFavorite.id %>"class="form-control">
+                  <input name='comment' type="text" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-default">add your comment</button>
+      </form>
 </div>

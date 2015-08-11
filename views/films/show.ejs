@@ -1,36 +1,36 @@
-<div class="row">
-   <a id='searchagain'; class='pull-right' href="/"><b>search again</a><br>
-   <h3><%= myFilm.title %></h3></br>
-  <div id='rating-div'>
-  </div>
+    <div class="row">
+        <h3><%= myFilm.title %></h3></br>
+        <div id='rating-div'></div>
+    </div>
 
-</div>
-<div class="col-md-4 col-md-offset-2">
-    <img id='poster' src="<%= myFilm.poster %>">
-</div>
-<div class="col-md-4 ">
-    <div style='text-align: left' class="well">
-      <p> Year: <%= myFilm.year %></p>
-      <p> Genre: <%= myFilm.genre %></p>
-      <p> Director: <%= myFilm.director %></p>
-      <p> Writer: <%= myFilm.writer %></p>
-      <p> Actors: <%= myFilm.actors %></p>
-      <p> Plot: <%= myFilm.plot %></p>
-      <p> Awards: <%= myFilm.awards %></p>
-        <p id='fresh'> Fresh: </b><%= myFilm.tomatoes %></p>
-      <p> Rating: <%= myFilm.rated %></p>
-          <form action="/favorites" method="POST" role="form">
-      <div class="form-group">
-        <input name='id' type="hidden" value="<%= myFilm.id %>" class="form-control">
-         <input name='title' type="hidden" value="<%= myFilm.title %>" class="form-control">
-          <input name='year' type="hidden" value="<%= myFilm.year %>" class="form-control">
-           <input name='poster' type="hidden" value="<%= myFilm.poster %>" class="form-control">
-      </div>
-      <button type="submit" class="btn btn-default">add to favorites</button>
-    </form>
-        </div>
-</div>
-<div id='hiderating'>
-    <p class='rating'> IMDB Rating: </p>
-    <p id='js-rating' class='rating'><%= myFilm.rating %></p>
-  </div>
+    <div class="col-md-4 col-md-offset-2">
+          <img id='poster' src="<%= myFilm.poster %>">
+    </div>
+
+    <div class="col-md-4 ">
+          <div style='text-align: left' class="well">
+          <p> Year: <%= myFilm.year %></p>
+          <p> Genre: <%= myFilm.genre %></p>
+          <p> Director: <%= myFilm.director %></p>
+          <p> Writer: <%= myFilm.writer %></p>
+          <p> Actors: <%= myFilm.actors %></p>
+          <p> Plot: <%= myFilm.plot %></p>
+          <p> Awards: <%= myFilm.awards %></p>
+          <p id='fresh'> Fresh: </b><%= myFilm.tomatoes %></p>
+          <p> Rating: <%= myFilm.rated %></p>
+                <form action="/favorites" method="POST" role="form">
+                      <div class="form-group">
+                            <input name='id' type="hidden" value="<%= myFilm.id %>" class="form-control">
+                            <input name='title' type="hidden" value="<%= myFilm.title %>" class="form-control">
+                            <input name='year' type="hidden" value="<%= myFilm.year %>" class="form-control">
+                            <input name='poster' type="hidden" value="<%= myFilm.poster %>" class="form-control">
+                      </div>
+                      <button type="submit" class="btn btn-default">add to favorites</button>
+                </form>
+          </div>
+    </div>
+
+    <div id='hiderating'>
+        <p class='rating'> IMDB Rating: </p>
+        <p id='js-rating' class='rating'><%= myFilm.rating %></p>
+    </div>
