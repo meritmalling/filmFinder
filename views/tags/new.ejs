@@ -1,10 +1,17 @@
-<h1>add a new tag</h1>
+<h1><%=myFavorite.title %></h1>
+<h5> tags for this film... </h5>
 
 <div class="col-sm-4 col-sm-offset-4">
-<form action="/favorites/<%= favoriteId %>/tags" method="POST" role="form">
+<% myFavorite.tags.forEach(function(tag){ %>
+            <div class="well">
+                    <b><%= tag.name %><br>
+            </div>
+      <% }); %>
+
+<form action="/favorites/<%= myFavorite.imdbId %>/tags" method="POST" role="form">
           <div class="form-group">
                     <input type="text" class="form-control" id="tagName" placeholder="#hashtag" name="tagName">
           </div>
-          <button type="submit" class="btn btn-primary">save tag</button>
+          <button type="submit" class="btn btn-default">save tag</button>
 </form>
 </div>

@@ -32,7 +32,13 @@ router.get("/show/:id", function(req, res){
 });
 
 router.get('/:id/tags/new', function(req, res) {
-  res.render('tags/new', {favoriteId: req.params.id});
+  var thisId = req.params.id
+      db.favorite.find({
+        where: {imdbId: thisId},
+        include: [db.tag]
+    }).then(function(favorite) {
+            res.render('tags/new', {myFavorite: favorite});
+      });
 });
 
 router.post('/:id/tags', function(req, res) {
@@ -42,7 +48,7 @@ router.post('/:id/tags', function(req, res) {
   db.favorite.find({where: {imdbId: favoriteId}}).then(function(favorite) {
     db.tag.findOrCreate({where: {name: newTag}}).spread(function(tag, created) {
       favorite.addTag(tag).then(function() {
-        res.redirect('/favorites/show/' + favoriteId);
+        res.redirect('/favorites/'+ favoriteId+'/tags/new/');
       })
     });
   });
