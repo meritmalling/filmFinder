@@ -5,7 +5,7 @@ var db = require("../models");
 
 router.get("/", function(req, res){
       db.favorite.findAll().then(function(favorites) {
-            res.render('favorites/index.ejs', {myFavorites: favorites});
+            res.render('favorites/index', {myFavorites: favorites});
       });
 });
 
@@ -23,12 +23,46 @@ router.get("/show/:id", function(req, res){
             db.favorite.find({where: {imdbId: lookup}}).then(function(favorite) {
                   var thisId = favorite.id
                   db.comment.findAll({where: {favoriteId: thisId}}).then(function(comments){
-                        res.render('favorites/show.ejs', {
+                        res.render('favorites/show', {
                         myFavorite: favorite,
                         myComments: comments
                         });
                   });
       });
 });
+
+router.get('/:id/tags/new', function(req, res) {
+  res.render('tags/new', {favoriteId: req.params.id});
+});
+
+router.post('/:id/tags', function(req, res) {
+  var newTag = req.body.tagName;
+  var favoriteId = req.params.id;
+
+  db.favorite.find({where: {imdbId: favoriteId}}).then(function(favorite) {
+    db.tag.findOrCreate({where: {name: newTag}}).spread(function(tag, created) {
+      favorite.addTag(tag).then(function() {
+        res.redirect('/favorites/show/' + favoriteId);
+      })
+    });
+  });
+});
+
+router.get('/tags/', function(req, res) {
+      db.tag.findAll().then(function(tags) {
+            res.render('tags/index', {myTags: tags});
+      });
+});
+
+router.get('/tags/:id', function(req, res) {
+  var thisId = req.params.id
+      db.tag.find({
+        where: {id: thisId},
+        include: [db.favorite]
+    }).then(function(tag) {
+            res.render('tags/show', {myTag: tag});
+      });
+});
+
 
 module.exports = router;
