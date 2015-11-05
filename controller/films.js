@@ -19,13 +19,13 @@ this.rated = rated;
 this.tomatoes = tomatoes;
 this.id = id;
 this.rating = rating;
-this.poster = poster
-}
+this.poster = poster;
+};
 
 
 router.get("/", function(req, res){
       res.render('films/index.ejs');
-})
+});
 
 router.get("/home", function(req, res){
       res.render('films/home.ejs');
@@ -34,17 +34,17 @@ router.get("/home", function(req, res){
 router.get("/results", function(req, res){
       var search = req.query.q;
       var url = ('http://www.omdbapi.com/?s=' + search);
-            request(url, function(error, response, data) {
-                  var filmInfo = JSON.parse(data);
-                  var searchResults = filmInfo.Search;
-                  if (searchResults) {
-                        res.render('films/results', { myFilms: searchResults});
-                  }
+      request(url, function(error, response, data) {
+            var filmInfo = JSON.parse(data);
+            var searchResults = filmInfo.Search;
+            if (searchResults) {
+                  res.render('films/results', { myFilms: searchResults});
+            }
       });
 });
 
 router.get("/show/:id", function(req, res){
-      var search = req.params.id
+      var search = req.params.id;
       var url = 'http://www.omdbapi.com/?i=' + search + '&tomatoes=true';
       request(url, function(error, response, data) {
             var filmInfo = JSON.parse(data);
@@ -58,12 +58,12 @@ router.get("/show/:id", function(req, res){
             var actors = filmInfo.Actors;
             var plot = filmInfo.Plot;
             var awards = filmInfo.Awards;
-            var id = filmInfo.imdbID
+            var id = filmInfo.imdbID;
             var rating = filmInfo.imdbRating;
-            var tomatoes = filmInfo.tomatoRating
-            var poster = filmInfo.Poster
+            var tomatoes = filmInfo.tomatoRating;
+            var poster = filmInfo.Poster;
             var thisFilm = new Film(title, year, rated, runtime, genre, director, writer, actors, plot, awards, year, rated, id, tomatoes, rating, poster);
-                  res.render('films/show.ejs', { myFilm: thisFilm })
+                  res.render('films/show.ejs', { myFilm: thisFilm });
         });
 });
 
