@@ -36,4 +36,9 @@ body {
 .well{
   background-color:  white;
 }
+.navbar {
+  background-color: white;
+  color: black;
+  font-weight: 900;
+}
 /*<img id='star' src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png'>*/
