@@ -4,6 +4,7 @@ body {
   background-image: url(http://www.cliparthut.com/clip-arts/545/film-reel-545278.jpg);
   background-repeat:  no-repeat;
   background-size:  1700px;
+  font-weight: 900;
 }
 #searchform{
   margin-top:  70px;
@@ -39,6 +40,5 @@ body {
 .navbar {
   background-color: white;
   color: black;
-  font-weight: 900;
 }
 /*<img id='star' src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/2000px-Gold_Star.svg.png'>*/
